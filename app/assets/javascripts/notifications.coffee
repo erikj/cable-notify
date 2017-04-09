@@ -6,7 +6,22 @@ cn = cn or {}
 @cn = cn
 
 $().ready ->
+
   cn.vueApp = new Vue
     el: '#vue-app'
     data:
       notifications: []
+
+    filters:
+
+      alertClass: (notification) ->
+        suffix = switch notification.eventType
+          when 'added'    then 'success'
+          when 'modified' then 'warning'
+          when 'removed'  then 'danger'
+          else                 'info'
+        return "alert alert-#{suffix}"
+
+      timestamp2h: (timestamp) ->
+        date = new Date(timestamp*1000)
+        return date.toLocaleTimeString()
