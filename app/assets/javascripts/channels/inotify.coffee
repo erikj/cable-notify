@@ -14,4 +14,4 @@ App.inotify = App.cable.subscriptions.create "InotifyChannel",
     @appendToList data
 
   appendToList: (data) ->
-    $('#notifications').append "<li>#{data}</li>"
+    cn.vueApp.notifications.push text:data

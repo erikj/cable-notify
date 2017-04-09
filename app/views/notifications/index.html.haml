@@ -6,7 +6,8 @@
 -#  user id:
 -#  = cookies.signed[:user_id]
 
-%div
+#vue-app
   notifications:
-
-  %ul#notifications
+  %ol
+    %li(v-for='notification in notifications')
+      {{ notification.text }}
