@@ -20,7 +20,7 @@ namespace :cablenotify do |variable|
     end
 
     listener.start
-    salutation = "listening to #{args.watch_dir} @ #{Time.now}"
+    salutation = "listening to #{args.watch_dir}"
     puts salutation
     ac_broadcast eventType: :info, message:salutation
     sleep
@@ -31,5 +31,6 @@ end
 private
 
 def ac_broadcast message
+  message[:time] = Time.now.to_f unless message.has_key? :time
   ActionCable.server.broadcast 'inotify', message
 end
