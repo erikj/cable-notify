@@ -6,15 +6,15 @@ namespace :cablenotify do |variable|
     listener = Listen.to(args.watch_dir) do |modified, added, removed|
 
       unless modified.empty?
-        ac_broadcast eventType: :modified, files:modified, time:Time.now.to_i
+        ac_broadcast eventType: :modified, files:modified, time:Time.now.to_f
       end
 
       unless added.empty?
-        ac_broadcast eventType: :added, files:added, time:Time.now.to_i
+        ac_broadcast eventType: :added, files:added, time:Time.now.to_f
       end
 
       unless removed.empty?
-        ac_broadcast eventType: :removed, files:removed, time:Time.now.to_i
+        ac_broadcast eventType: :removed, files:removed, time:Time.now.to_f
       end
 
     end

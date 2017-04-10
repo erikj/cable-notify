@@ -23,5 +23,5 @@ $().ready ->
         return "alert alert-#{suffix}"
 
       timestamp2h: (timestamp) ->
-        date = new Date(timestamp*1000)
-        return date.toLocaleTimeString()
+        # console.log timestamp
+        return strftime('%Y/%m/%d %H:%M:%S.%L', new Date(timestamp*1000))

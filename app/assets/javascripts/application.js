@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require strftime
 //= require channels
 //= require_tree .
