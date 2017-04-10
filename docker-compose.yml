@@ -7,7 +7,8 @@ services:
 
   app:
     # image: ncareol/ruby:debian-for-rails-mariadb-2.3.3-0
-    build: .
+    build:
+      context: docker/app
     volumes:
       - ./:/app
     ports:
