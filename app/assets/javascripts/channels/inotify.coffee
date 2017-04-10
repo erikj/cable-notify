@@ -1,7 +1,7 @@
 App.inotify = App.cable.subscriptions.create "InotifyChannel",
   connected: ->
     # Called when the subscription is ready for use on the server
-    @appendToList "we are connected"
+    @appendToList eventType:'info', message:"we are connected"
 
   disconnected: ->
     # Called when the subscription has been terminated by the server
@@ -14,4 +14,5 @@ App.inotify = App.cable.subscriptions.create "InotifyChannel",
     @appendToList data
 
   appendToList: (data) ->
-    $('#notifications').append "<li>#{data}</li>"
+    # console.log data
+    cn.vueApp.notifications.unshift data

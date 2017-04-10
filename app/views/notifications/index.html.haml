@@ -1,12 +1,23 @@
 %h1 CableNotify
 
-%h2 Notifications#index
-
 -# %div
 -#  user id:
 -#  = cookies.signed[:user_id]
 
-%div
-  notifications:
+#vue-app
 
-  %ul#notifications
+  %h2 Notifications
+
+  %div.notification(v-for='notification in notifications' v-bind:class='notification | alertClass')
+
+    %p(v-if="notification.files!=undefined")
+      Files
+      %b {{notification.eventType}}:
+      %ul
+        %li(v-for='file in notification.files')
+          {{ file }}
+    %p(v-if="notification.message!=undefined")
+      Message: {{notification.message}}
+
+    .time.small(v-if="notification.time!=undefined")
+      @ {{ notification.time | timestamp2h}}
