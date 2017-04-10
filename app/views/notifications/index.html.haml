@@ -11,7 +11,8 @@
   %div.notification(v-for='notification in notifications' v-bind:class='notification | alertClass')
 
     %p(v-if="notification.files!=undefined")
-      Files {{notification.eventType}}:
+      Files
+      %b {{notification.eventType}}:
       %ul
         %li(v-for='file in notification.files')
           {{ file }}
