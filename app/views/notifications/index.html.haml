@@ -5,10 +5,11 @@
 -#  = cookies.signed[:user_id]
 
 #vue-app
+
   %h2 Notifications
+
   %div.notification(v-for='notification in notifications' v-bind:class='notification | alertClass')
-    %p(v-if="notification.time!=undefined")
-      Time: {{ notification.time | timestamp2h}}
+
     %p(v-if="notification.files!=undefined")
       Files {{notification.eventType}}:
       %ul
@@ -16,3 +17,6 @@
           {{ file }}
     %p(v-if="notification.message!=undefined")
       Message: {{notification.message}}
+
+    .time.small(v-if="notification.time!=undefined")
+      @ {{ notification.time | timestamp2h}}
