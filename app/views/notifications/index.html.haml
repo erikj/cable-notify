@@ -6,7 +6,7 @@
 
 #vue-app
   %h2 Notifications
-  %div(v-for='notification in notifications' v-bind:class='notification | alertClass')
+  %div.notification(v-for='notification in notifications' v-bind:class='notification | alertClass')
     %p(v-if="notification.time!=undefined")
       Time: {{ notification.time | timestamp2h}}
     %p(v-if="notification.files!=undefined")
